@@ -1,0 +1,138 @@
+.productos {
+  /* max-width: 1200px; */
+
+  & main {
+    max-width: 1200px;
+    position: relative;
+    top: 100px;
+
+    & .banner {
+      width: 100%;
+      max-height: 300px;
+    }
+
+    & .filtros {
+      position: sticky;
+      top: 80px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Estilo por defecto del checkbox oculto */
+    & .checkbox-input {
+      display: none;
+    }
+
+    /* Estilo del label que simula el botón */
+    & .checkbox-label {
+      display: inline-block;
+      background-color: var(--bs-dark-bg-subtle);
+      padding: 5px 15px;
+      margin: 3px 0;
+      cursor: pointer;
+      border-radius: 34px;
+    }
+
+    /* Estilo cuando el checkbox está seleccionado */
+    & .checkbox-input:checked + .checkbox-label {
+      background-color: var(--bs-success);
+    }
+
+    & h2 {
+      margin: 30px 0;
+    }
+
+    & #cards {
+      & .card {
+        height: 500px;
+        width: 100%;
+        & .card-title {
+          font-size: 1.2rem;
+          font-weight: 500;
+        }
+        &:hover {
+          transform: scale(1.05);
+          box-shadow: 5px 5px 15px 5px #554e4e;
+          transition-duration: 0.5s;
+          z-index: 1;
+        }
+        & a {
+          font-weight: 600;
+        }
+
+        & .card-footer{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          
+          & p {
+            flex: auto;
+            margin: auto; 
+          }
+        }
+      }
+    }
+  }
+
+  & footer {
+    position: relative;
+    top: 150px;
+  }
+}
+
+@media (width <=425px) {
+  .productos {
+    & main {
+      & #cards {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+      }
+    }
+  }
+}
+
+@media (425px < width <= 768px) {
+  .productos {
+    & main {
+      & #cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+    }
+  }
+}
+
+@media (768px < width <= 1024px) {
+  .productos {
+    & main {
+      & #cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+    }
+  }
+}
+
+@media (1024px < width) {
+  .productos {
+    & main {
+      & #cards {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+    }
+  }
+}
+
+
+.cart-img{
+  width: 50px;
+  height: 50px;
+}

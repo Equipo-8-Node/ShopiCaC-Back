@@ -7,15 +7,13 @@
 
     <link
       rel="stylesheet"
-      href="./styles/css-bootstrap/bootstrap.min.css"
+      href="../styles/css-bootstrap/bootstrap.min.css"
     >
-
     <link
       rel="shortcut icon"
       href="https://firebasestorage.googleapis.com/v0/b/miportfoliocab.appspot.com/o/ShopiCaC.ico?alt=media&token=b78062e1-3676-434f-bd81-84ba55f11037"
       type="image/x-icon"
     >
-    
     <!-- <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -29,12 +27,12 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     >
 
-    <link rel="stylesheet" href="./styles/styles.css" >
-    <link rel="stylesheet" href="./styles/html.css" >
-    <title>ShopiCaC - Inicio 🏪</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+
+    <title>ShopiCaC - Detalles del productos 👕</title>
   </head>
 
-  <body>
+  <body class="detalles">
     <header>
       <nav
         class="fixed-top navbar navbar-expand-md navbar-dark bd-navbar bg-dark bg-gradient bg-opacity-75 bg-blur"
@@ -42,8 +40,8 @@
         <div class="container-xxl d-flex flex-wrap flex-md-nowrap">
           <figure class="my-0">
             <img
-              src="./img/logo_ShopiCaC.png"
-              alt="shopicac logo"
+              src="../img/logo_ShopiCaC.png"
+              alt="Logo ShopiCaC"
               width="70"
             >
             <figcaption class="text-white text-center">ShopiCaC</figcaption>
@@ -63,23 +61,23 @@
 
           <!-- nav -->
           <div class="collapse navbar-collapse" id="bdNavbar">
-            <hr class="d-md-none text-white-50" >
+            <hr class="d-md-none text-white-50">
 
             <ul class="navbar-nav barra-navegacion">
               <li class="nav-item btn-width border-2">
-                <a class="nav-link active" href="#">INICIO</a>
+                <a class="nav-link" href="../index.html">INICIO</a>
               </li>
 
               <li class="nav-item btn-width border-2">
-                <a class="nav-link" href="./pages/products.html">PRODUCTOS</a>
+                <a class="nav-link" href="./products.html">PRODUCTOS</a>
               </li>
 
               <li class="nav-item btn-width border-2">
-                <a class="nav-link" href="./pages/contact.html">CONTACTO</a>
+                <a class="nav-link" href="./contact.html">CONTACTO</a>
               </li>
 
               <li class="nav-item btn-width border-2">
-                <a class="nav-link" href="./pages/login.html">LOGIN</a>
+                <a class="nav-link" href="./login.html">LOGIN</a>
               </li>
             </ul>
           </div>
@@ -88,11 +86,6 @@
     </header>
 
     <main>
-      <!-- boton ir arriba -->
-      <a href="#header" class="btnArriba"
-        ><i class="fa fa-chevron-up iconoArriba"></i
-      ></a>
-
       <!-- theme selector -->
       <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
         <symbol id="check2" viewBox="0 0 16 16">
@@ -190,146 +183,20 @@
       </div>
       <!-- theme selector -->
 
-      <div class="hero">
-        <!-- CARROUSEL sin bootstrap -->
-        <section class="carrousel">
-          <div class="carrousel__container">
-            <div class="carrousel__slider">
-              <div class="carrousel__slide" style="order: 1">
-                <img
-                  src="/img/diapositivas/slide03.png"
-                  class="carrousel__image"
-                  alt="Banner"
-                >
-              </div>
-              <div class="carrousel__slide" style="order: 2">
-                <img
-                  src="/img/diapositivas/slide03.png"
-                  class="carrousel__image"
-                  alt="Banner"
-                >
-              </div>
-              <div class="carrousel__slide" style="order: 3">
-                <img
-                  src="/img/diapositivas/slide03.png"
-                  class="carrousel__image"
-                  alt="Banner"
-                >
-              </div>
-            </div>
-            <button id="prevBtn"><i class="fas fa-chevron-left"></i></button>
-            <button id="nextBtn"><i class="fas fa-chevron-right"></i></button>
-          </div>
-        </section>
+
+      <h2>Detalles del producto</h2>
+      <div id="card-detalles" class="card mb-3"></div>
+
+      <div>
+        <button id="botonVolver" class="btn btn-outline-danger">
+          <i class="bi bi-caret-left"></i>
+          Volver
+        </button>
       </div>
 
-      <!-- SECCION INFO -->
-      <section class="compras-info">
-        <div class="compras-info__container">
-          <div class="compras-info__items">
-            <div class="compras-info__item">
-              <p class="compras__item-icono">
-                <i class="fas fa-truck"></i>
-              </p>
-              <p class="compras__item-titulo">ENVÍOS A TODO EL PAIS</p>
-              <p class="compras__item-subtitulo">
-                Despachamos dentro de las 24 hs
-              </p>
-            </div>
-            <div class="compras-info__item">
-              <p class="compras__item-icono">
-                <i class="far fa-credit-card"></i>
-              </p>
-              <p class="compras__item-titulo">3 CUOTAS SIN INTERES</p>
-              <p class="compras__item-subtitulo">
-                Con todas las tarjetas bancarizadas
-              </p>
-            </div>
-            <div class="compras-info__item">
-              <p class="compras__item-icono">
-                <i class="compras__icono fab fa-whatsapp"></i>
-              </p>
-              <p class="compras__item-titulo">TENES DUDAS?</p>
-              <p class="compras__item-subtitulo">
-                Escribinos! Atención las 24 hs del dia
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- FIN SECCION INFO -->
-
-      <!-- SECCION DE PRODUCTOS -->
-      <section class="todos-los-productos">
-        <!--PRODUCTOS 1-->
-        <div class="producto" id="producto-1">
-          <div class="producto-info">
-            <h3 class="producto-titulo">
-              <a href="/pages/products.html"> Electronica </a>
-            </h3>
-            <img
-              src="https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg"
-              alt="Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin"
-            >
-            <a class="producto-btn" href="/pages/products.html">
-              Ver productos
-            </a>
-          </div>
-        </div>
-
-        <!--PRODUCTOS 2-->
-        <div class="producto" id="producto-2">
-          <div class="producto-info">
-            <h3 class="producto-titulo">
-              <a href="/pages/products.html"> Accesorios </a>
-            </h3>
-            <img
-              src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-              alt="Ropa Masculina"
-            >
-            <a class="producto-btn" href="/pages/products.html">
-              Ver productos
-            </a>
-          </div>
-        </div>
-
-        <!--PRODUCTOS 3-->
-        <div class="producto" id="producto-3">
-          <div class="producto-info">
-            <h3 class="producto-titulo">
-              <a href="/pages/products.html">Ropa de hombre </a>
-            </h3>
-            <img
-              src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
-              alt="Mens Cotton Jacket"
-            >
-            <a class="producto-btn" href="/pages/products.html">
-              Ver productos
-            </a>
-          </div>
-        </div>
-
-        <!--PRODUCTOS 4-->
-        <div class="producto" id="producto-4">
-          <div class="producto-info">
-            <h3 class="producto-titulo">
-              <a href="/pages/products.html"> Ropa de mujer </a>
-            </h3>
-            <img
-              src="https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg"
-              alt="Opna Women's Short Sleeve Moisture"
-            >
-            <a class="producto-btn" href="/pages/products.html">
-              Ver productos
-            </a>
-          </div>
-        </div>
-      </section>
     </main>
 
-    <!-- FIN PRODUCTOS -->
-    <!-- footer 1 con bootstrap -->
+    <!-- footer 1 -->
 
     <footer
       id="footer"
@@ -337,6 +204,7 @@
     >
       <div class="container footer-container">
         <div class="py-2">
+          <!-- Adjusted padding -->
           <ul class="nav justify-content-center border-bottom pb-3 mb-3">
             <li class="nav-item btn-width border-2">
               <a href="#" class="nav-link px-2 text-white-50">Inicio</a>
@@ -355,11 +223,11 @@
         </div>
       </div>
     </footer>
+
+    <script type="module" src="../js/detalles.js"></script>
+    <script src="../js/theme.js"></script>
+
     <!-- JS Bootstrap -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
-    <script src="./js/js-bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="./js/btnArriba.js"></script>
-    <script src="./js/theme.js"></script>
-    <script src="./js/diapositivas.js"></script>
+    <script src="../js/js-bootstrap/bootstrap.bundle.min.js"></script>
   </body>
 </html>

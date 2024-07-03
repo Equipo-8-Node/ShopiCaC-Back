@@ -1,0 +1,95 @@
+/* Importaciones */
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css);
+@import url(./theme.css);
+@import url(./productos.css);
+@import url(./detalles.css);
+
+:root {
+  --accent-100: #ff4d4d;
+  --accent-200: #ffecda;
+}
+
+/* Normalizacion */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+[data-bs-theme=light] {
+  --bs-body-bg: #f5fff1;
+  /* --bs-body-bg: var(--bs-warning); */
+
+}
+
+.bg-blur {
+  /* filter: blur(5px);  */
+  backdrop-filter: blur(10px);
+}
+
+.btn-width {
+  width: 110px;
+}
+
+/* nav */
+
+.barra-navegacion {
+  padding: 10px;
+  text-align: center;
+  margin-left: auto;
+
+  & li {
+    display: inline;
+  }
+
+  & a {
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+
+
+    &:hover {
+      border-bottom: 3px solid var(--accent-200);
+    }
+
+    &.active {
+      border-bottom: 3px solid var(--accent-100);
+    }
+  }
+}
+
+
+/* boton Ir arriba */
+.btnArriba {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #F07423;
+  color: #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.iconoArriba {
+  color: white !important;
+  text-decoration: none;
+}
+
+
+/* Footer */
+
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+}
