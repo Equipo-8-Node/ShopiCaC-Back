@@ -35,6 +35,33 @@ const crearCards = (productos) => {
               </button>
             </div>
           </div>
+
+          <div class="card-footer">
+            <div class="d-flex justify-content-center">
+            <div
+              class="btn-group btn-group-sm"
+              role="group"
+              aria-label="Basic outlined example"
+
+            >
+              <a
+                href="/editar-producto"
+                class="btn btn-outline-warning fs-5 bt"
+              >
+                <abbr title="Editar"
+                  ><i class="bi bi-pencil-square px-3"></i
+                ></abbr>
+              </a>
+
+              <a
+                href=""
+                class="btn btn-outline-danger fs-5"
+              >
+                <abbr title="Borrar"><i class="bi bi-x-square px-3"></i></abbr>
+              </a>
+            </div>
+          </div>
+          </div>
         </section>
       `
     )
