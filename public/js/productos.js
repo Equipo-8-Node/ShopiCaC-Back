@@ -1,7 +1,7 @@
-import datos from "./datos.js";
+//import datos from "./datos.js";
 import { ShoppingCart } from "./carrito.js";
 
-const productos = datos.productos;
+//const productos = datos.productos;
 const $cards = document.getElementById("cards");
 const $checkboxes = document.getElementById("checkboxes");
 const $search = document.querySelector('input[placeholder="buscar"]');
@@ -9,6 +9,7 @@ const $clearCartBtn = document.getElementById("clear-cart-btn");
 
 const cart = new ShoppingCart();
 
+/*
 const crearCards = (productos) => {
   $cards.innerHTML = productos
     .map(
@@ -35,38 +36,12 @@ const crearCards = (productos) => {
               </button>
             </div>
           </div>
-
-          <div class="card-footer">
-            <div class="d-flex justify-content-center">
-            <div
-              class="btn-group btn-group-sm"
-              role="group"
-              aria-label="Basic outlined example"
-
-            >
-              <a
-                href="/editar-producto"
-                class="btn btn-outline-warning fs-5 bt"
-              >
-                <abbr title="Editar"
-                  ><i class="bi bi-pencil-square px-3"></i
-                ></abbr>
-              </a>
-
-              <a
-                href=""
-                class="btn btn-outline-danger fs-5"
-              >
-                <abbr title="Borrar"><i class="bi bi-x-square px-3"></i></abbr>
-              </a>
-            </div>
-          </div>
-          </div>
         </section>
       `
     )
     .join("");
 };
+*/
 
 const crearCategorias = (array) => {
   const categoriasUnicas = [
@@ -170,6 +145,9 @@ $clearCartBtn.addEventListener("click", () => {
   cart.updateCartUI();
 });
 
-crearCards(productos);
+//crearCards(productos);
 const categorias = crearCategorias(productos);
 crearCheckbox(categorias);
+
+///////////////////////////////////
+

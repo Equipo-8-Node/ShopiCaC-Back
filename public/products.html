@@ -10,22 +10,20 @@
       href="https://firebasestorage.googleapis.com/v0/b/miportfoliocab.appspot.com/o/ShopiCaC.ico?alt=media&token=b78062e1-3676-434f-bd81-84ba55f11037"
       type="image/x-icon"
     />
-    <!-- Iconos de Bootsrap -->
+    <!-- Iconos de Bootrap -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
-    <!-- styles -->
     <link rel="stylesheet" href="./styles/styles.css" />
-    <link rel="stylesheet" href="./styles/index.css" />
-    <link rel="stylesheet" href="./styles/theme.css" />
-    <title>ShopiCaC - Inicio 🏪</title>
+
+    <title>ShopiCaC - Productos 👕</title>
   </head>
 
-  <body>
+  <body class="productos">
     <header id="idheader"></header>
 
-    <main>
+    <main class="container">
       <!-- boton ir arriba -->
       <a href="#header" class="btnArriba"
         ><i class="fa fa-chevron-up iconoArriba"></i
@@ -128,78 +126,83 @@
       </div>
       <!-- theme selector -->
 
-      <div class="hero">
-        <!-- CARROUSEL sin bootstrap -->
-        <section class="carrousel">
-          <div class="carrousel__container">
-            <div class="carrousel__slider">
-              <div class="carrousel__slide" style="order: 1">
-                <img
-                  src="/img/diapositivas/slide03.png"
-                  class="carrousel__image"
-                  alt="Banner"
-                />
-              </div>
-              <div class="carrousel__slide" style="order: 2">
-                <img
-                  src="./img/diapositivas/slide03.png"
-                  class="carrousel__image"
-                  alt="Banner"
-                />
-              </div>
-              <div class="carrousel__slide" style="order: 3">
-                <img
-                  src="./img/diapositivas/slide03.png"
-                  class="carrousel__image"
-                  alt="Banner"
-                />
-              </div>
-            </div>
-            <button id="prevBtn"><i class="fas fa-chevron-left"></i></button>
-            <button id="nextBtn"><i class="fas fa-chevron-right"></i></button>
-          </div>
-        </section>
-      </div>
-
-      <!-- SECCION INFO -->
-      <section class="compras-info">
-        <div class="compras-info__container">
-          <div class="compras-info__items">
-            <div class="compras-info__item">
-              <p class="compras__item-icono">
-                <i class="fas fa-truck"></i>
-              </p>
-              <p class="compras__item-titulo">ENVÍOS A TODO EL PAIS</p>
-              <p class="compras__item-subtitulo">
-                Despachamos dentro de las 24 hs
-              </p>
-            </div>
-            <div class="compras-info__item">
-              <p class="compras__item-icono">
-                <i class="far fa-credit-card"></i>
-              </p>
-              <p class="compras__item-titulo">3 CUOTAS SIN INTERES</p>
-              <p class="compras__item-subtitulo">
-                Con todas las tarjetas bancarizadas
-              </p>
-            </div>
-            <div class="compras-info__item">
-              <p class="compras__item-icono">
-                <i class="compras__icono fab fa-whatsapp"></i>
-              </p>
-              <p class="compras__item-titulo">TENES DUDAS?</p>
-              <p class="compras__item-subtitulo">
-                Escribinos! Atención las 24 hs del dia
-              </p>
-            </div>
-          </div>
+      <!-- carrito -->
+      <div
+        class="offcanvas offcanvas-start"
+        data-bs-scroll="true"
+        tabindex="-1"
+        id="offcanvasWithBothOptions"
+        aria-labelledby="offcanvasWithBothOptionsLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
+            Carrito
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
         </div>
-      </section>
-      <!-- FIN SECCION INFO -->
 
-      <!-- SECCION DE PRODUCTOS -->
-      <section id="cuatroProductos"></section>
-      <!-- FIN PRODUCTOS -->
+        <div id="cart-container" class="offcanvas-body">
+          <button class="btn" id="clear-cart-btn">Limpiar carrito</button>
+
+          <ul class="list-group">
+            <li
+              class="list-group-item list-group-item-action list-group-item-success"
+            >
+              <p>Productos en el carrito: <span id="total-items">0</span></p>
+              <p>Valor del carrito: <span id="total">$ 0</span></p>
+            </li>
+          </ul>
+
+          <hr />
+
+          <ul id="products-container" class="list-group"></ul>
+        </div>
+      </div>
+      <!-- carrito -->
+
+      <img class="banner" src="./img/banner_2.jpg" alt="banner" />
+
+      <form class="filtros bg-gradient bg-opacity-75 bg-blur p-3">
+        <div class="input-group mb-2 w-75">
+          <span class="input-group-text rounded-start-pill" id="basic-addon1">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </span>
+
+          <input
+            type="text"
+            class="form-control rounded-end-pill"
+            placeholder="buscar"
+            aria-label="buscar"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+
+        <fieldset id="checkboxes"></fieldset>
+      </form>
+
+      <h2>Todos nuestros Productos</h2>
+      <article id="cards"></article>
+
+      <div class="toast-container position-fixed top-50 end-0 p-3">
+        <div id="toast" class="toast" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <!-- <img src="..." class="rounded me-2" alt="..." /> -->
+            <strong class="me-auto">ShopiCaC:</strong>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="toast"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="toast-body">Producto agregado al carrito</div>
+        </div>
+      </div>
     </main>
 
     <!-- footer -->
@@ -208,14 +211,16 @@
       class="footer-dark bd-footer bg-dark bg-gradient bg-opacity-75 bg-blur"
     ></footer>
 
-    <!-- JS Bootstrap -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
-    <script src="./js/js-bootstrap/bootstrap.bundle.min.js"></script>
-    <!-- Scripts -->
-    <script src="./js/btnArriba.js"></script>
+    <!-- Scripts-->
+    <script src="./js/carrito.js"></script>
+    <script src="./js/carritoService.js"></script>
+    <script src="./js/productosService.js"></script>
+    <script src="./js/productos.js"></script>
     <script src="./js/theme.js"></script>
-    <script src="./js/diapositivas.js"></script>
-    <script src="./js/indexService.js"></script>
+    <script src="./js/btnArriba.js"></script>
+
+    <!-- JS Bootstrap -->
+    <script src="./js/js-bootstrap/bootstrap.bundle.min.js"></script>
 
     <!-- Script header -->
     <script src="./js/header.js"></script>
