@@ -14,6 +14,7 @@ const uploadFile = multer({ storage })
 router.get("/getAllProducts", controladores.getAllProducts)
 router.get("/getProductsInicio", controladores.getProductsInicio)
 
+
 ///
 /*
 router.post('/listado', uploadFile.single('archivo'), controladores.crearRegistro)

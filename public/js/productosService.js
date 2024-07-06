@@ -21,7 +21,7 @@ document.querySelector('body').onload = async () => {
                 <a href="./detail.html?id=${producto.id}" class="btn btn-outline-danger btn-sm">
                   Detalles
                 </a>  
-                <button id="${producto.id}" class="btn btn-outline-danger add-to-cart-btn btn-sm">
+                <button id="producto_${producto.id}" class="btn btn-outline-danger add-to-cart-btn btn-sm">
                   <i class="fa fa-cart-plus" aria-hidden="true"></i>
                 </button>
               </div>
