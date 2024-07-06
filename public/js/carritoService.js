@@ -43,6 +43,7 @@ function getNuevoProductoParaMemoria(producto) {
 }
 
 const cuentaCarritoElement = document.getElementById("cuenta-carrito");
+
 function actualizarNumeroCarrito() {
     const memoria = JSON.parse(localStorage.getItem("producto"));
     if (memoria && memoria.length > 0) {

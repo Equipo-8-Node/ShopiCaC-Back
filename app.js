@@ -22,14 +22,6 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Rutas
-/*
-app.post("/carrito/comprar", async (req, res) => {
-  if (req.body && req.body.length > 0) {
-    return res.sendStatus(200);
-  }
-  res.sendStatus(400);
-});
-*/
 
 // Ruta para servir 'index.html' cuando se accede a '/'
 app.get('/', (req, res) => {

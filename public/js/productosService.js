@@ -4,6 +4,7 @@ document.querySelector('body').onload = async () => {
 
   let listaHTML = document.querySelector(`#cards`)
   listaHTML.innerHTML = ''
+
   datos.forEach(producto => {
     listaHTML.innerHTML += `
         <div class="producto">
