@@ -11,7 +11,7 @@ function header() {
     <div class="container-xxl d-flex flex-wrap flex-md-nowrap">
       <figure class="my-0">
         <img
-          src="../assets/img/logo_ShopiCaC.png"
+          src="../img/logo_ShopiCaC.png"
           alt="Logo ShopiCaC"
           width="70"
         />

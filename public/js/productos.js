@@ -6,7 +6,6 @@ const $cards = document.getElementById("cards");
 const $checkboxes = document.getElementById("checkboxes");
 const $search = document.querySelector('input[placeholder="buscar"]');
 const $clearCartBtn = document.getElementById("clear-cart-btn");
-
 const cart = new ShoppingCart();
 
 const crearCards = (productos) => {
@@ -46,7 +45,7 @@ const crearCards = (productos) => {
             >
               <a
                 href="/editar-producto"
-                class="btn btn-outline-warning fs-5 bt"
+                class="btn btn-outline-warning bt"
               >
                 <abbr title="Editar"
                   ><i class="bi bi-pencil-square px-3"></i
@@ -54,8 +53,8 @@ const crearCards = (productos) => {
               </a>
 
               <a
-                href=""
-                class="btn btn-outline-danger fs-5"
+                href="/eliminar-producto"
+                class="btn btn-outline-danger"
               >
                 <abbr title="Borrar"><i class="bi bi-x-square px-3"></i></abbr>
               </a>
@@ -141,7 +140,7 @@ const filterAndRender = () => {
 };
 
 // reinicio del formulario al retroceder con el botón "Volver" en la página details
-export const resetForm = () => {
+const resetForm = () => {
   window.addEventListener("pageshow", () => {
     const form = document.querySelector('.filtros');
     form.reset();

@@ -36,14 +36,16 @@
       <div class="row m-5">
         <h1 class="my-4">Editar producto</h1>
 
-        <form class="col col-12 col-xl-6">
+        <form class="col col-12 col-xl-6" method="POST" action="/editar-producto?_method=PUT">
+
           <!-- titulo -->
           <div class="mb-3">
             <label for="titulo" class="form-label">Título</label>
             <input
               type="text"
               class="form-control"
-              id="titulo"
+              id="titulo"0
+
               name="titulo"
               required
               placeholder="Título del producto"
