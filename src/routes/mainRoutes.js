@@ -1,29 +1,36 @@
 const express = require(`express`)
 const router = express.Router()
+const controladores = require('../controllers/mainController')
 const path = require('path')
 
+router.get("/productos", (req, res) => {
+  res.sendFile(path.resolve(__dirname, './../views/products.html'))
+})
+
+router.get("/contacto", (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../../public/pages/contact.html'))
+})
+
+router.get("/login", (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../../public/pages/login.html'))
+})
+
 router.get("/agregar-producto", (req, res) => {
-  res.sendFile(path.resolve(__dirname + './../views/agregar_producto.html'))
+  res.sendFile(path.resolve(__dirname, `../../public/pages/agregar_producto.html`));
 })
 
-router.get("/editar-producto", (req, res) => {
-  res.sendFile(path.resolve(__dirname + `./../views/editar-producto.html`))
-})
+/*********************************************************************************************/
 
-router.post("/agregar-producto", (req, res) => {
-  console.log(req.body)
-  res.send('Algo')
-})
+router.get("/getProductos", controladores.getProductos)
+router.get("/getCategorias", controladores.getCategorias)
 
-router.put("/editar-producto", (req, res) => {
-  console.log(req.body)
-  res.send('Algo')
-})
+router.post("/crearproducto", controladores.crearProducto)
 
-router.delete("/eliminar-producto", (req, res) => {
-  console.log(req.body)
-  res.send('Se elimino Algo')
-})
+router.get("/editar-producto/:id", controladores.editarProducto)
+
+router.put("/editar-producto", controladores.actualizarProducto)
+
+router.delete("/productos/:id", controladores.eliminarProducto)
 
 
 module.exports = router
