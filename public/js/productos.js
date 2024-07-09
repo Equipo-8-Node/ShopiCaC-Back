@@ -1,12 +1,10 @@
-import datos from "./datos.js";
-import { ShoppingCart } from "./carrito.js";
+// import { ShoppingCart } from "./carrito.js";
 
-const productos = datos.productos;
 const $cards = document.getElementById("cards");
 const $checkboxes = document.getElementById("checkboxes");
 const $search = document.querySelector('input[placeholder="buscar"]');
 const $clearCartBtn = document.getElementById("clear-cart-btn");
-const cart = new ShoppingCart();
+// const cart = new ShoppingCart();
 
 const crearCards = (productos) => {
   $cards.innerHTML = productos
@@ -67,12 +65,6 @@ const crearCards = (productos) => {
     .join("");
 };
 
-const crearCategorias = (array) => {
-  const categoriasUnicas = [
-    ...new Set(array.map((producto) => producto.categoria))
-  ];
-  return categoriasUnicas;
-};
 
 const crearCheckbox = (categorias) => {
   $checkboxes.innerHTML = categorias
@@ -102,7 +94,7 @@ const filterCheckbox = (array, checked) => {
   if (filterCheckboxes.length === 0) return array;
 
   return array.filter((producto) =>
-    filterCheckboxes.includes(producto.categoria.toLowerCase())
+    filterCheckboxes.includes(producto.nombre_categoria.toLowerCase())
   );
 };
 
@@ -151,6 +143,10 @@ const resetForm = () => {
 
 resetForm(); //reinicio el formulario (checkboxes y search)
 
+let productos = []
+let categorias = []
+
+
 document.addEventListener("click", (event) => {
   if (event.target.closest(".add-to-cart-btn")) {
     const btn = event.target.closest(".add-to-cart-btn");
@@ -169,6 +165,16 @@ $clearCartBtn.addEventListener("click", () => {
   cart.updateCartUI();
 });
 
-crearCards(productos);
-const categorias = crearCategorias(productos);
-crearCheckbox(categorias);
+
+
+document.querySelector('body').onload = async () => {
+  const resProductos = await fetch(`http://localhost:4000/getAllProducts`)
+  productos = await resProductos.json()
+
+  const resCategorias = await fetch('http://localhost:4000/getCategorias')
+  categorias = await resCategorias.json()
+  categorias = categorias.map(categoria => categoria.nombre)
+
+  crearCards(productos, $cards);
+  crearCheckbox(categorias, $checkboxes);
+};

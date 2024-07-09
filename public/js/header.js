@@ -52,15 +52,15 @@ function header() {
         </li>
   
         <li class="nav-item btn-width border-2">
-          <a class="nav-link" id="navbarproductos" href="../pages/products.html">PRODUCTOS</a>
+          <a class="nav-link" id="navbarproductos" href="../products.html">PRODUCTOS</a>
         </li>
   
         <li class="nav-item btn-width border-2">
-          <a class="nav-link" id="navbarcontacto" href="../pages/contact.html">CONTACTO</a>
+          <a class="nav-link" id="navbarcontacto" href="../contact.html">CONTACTO</a>
         </li>
   
         <li class="nav-item btn-width border-2">
-          <a class="nav-link" id="navbarlogin" href="../pages/login.html">LOGIN</a>
+          <a class="nav-link" id="navbarlogin" href="../login.html">LOGIN</a>
         </li>
     
         </ul>

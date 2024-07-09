@@ -1,29 +1,28 @@
-const express = require(`express`)
+const express = require('express')
 const router = express.Router()
+const controladores = require(`../controllers/mainController`)
+const multer = require('multer')
 const path = require('path')
 
-router.get("/agregar-producto", (req, res) => {
-  res.sendFile(path.resolve(__dirname + './../views/agregar_producto.html'))
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => { cb(null, `public/img/`) },
+    filename: (req, file, cb) => { cb(null, Date.now() + "_" + file.originalname) }
 })
 
-router.get("/editar-producto", (req, res) => {
-  res.sendFile(path.resolve(__dirname + `./../views/editar-producto.html`))
-})
+const uploadFile = multer({ storage })
 
-router.post("/agregar-producto", (req, res) => {
-  console.log(req.body)
-  res.send('Algo')
-})
+router.get("/getAllProducts", controladores.getAllProducts)
+router.get("/getProductsInicio", controladores.getProductsInicio)
+router.get("/getCategorias", controladores.getCategorias)
 
-router.put("/editar-producto", (req, res) => {
-  console.log(req.body)
-  res.send('Algo')
-})
 
-router.delete("/eliminar-producto", (req, res) => {
-  console.log(req.body)
-  res.send('Se elimino Algo')
-})
 
+///
+/*
+router.post('/listado', uploadFile.single('archivo'), controladores.crearRegistro)
+router.get('/modificar/:num', controladores.getModificar)
+router.patch('/modificar', controladores.actualizar)
+router.delete('/listado', controladores.eliminar)
+*/
 
 module.exports = router
