@@ -1,6 +1,5 @@
 // import { ShoppingCart } from "../js/carrito";
 
-
 const $cards = document.getElementById("cards");
 const $checkboxes = document.getElementById("checkboxes");
 const $search = document.querySelector('input[placeholder="buscar"]');
@@ -19,10 +18,12 @@ const crearCards = (productos) => {
             class="card-img-top h-50"
             alt="${producto.titulo} image"
           >
+
           <div class="card-body d-flex flex-column justify-content-between p-2">
             <p class="card-title">${producto.titulo}</p>
             <p class="card-text">${producto.nombre_categoria}</p>
           </div>
+          
           <div class="card-footer">
             <p>$${producto.precio}</p>
             <div>
@@ -35,31 +36,29 @@ const crearCards = (productos) => {
             </div>
           </div>
 
-          <div class="card-footer">
-            <div class="d-flex justify-content-center">
-            <div
-              class="btn-group btn-group-sm"
-              role="group"
-              aria-label="Basic outlined example"
+          <div class="card-footer ">
+                <a
+                  href="/editarproducto/${producto.id}"
+                  class="btn btn-outline-warning mx-1 btn-sm"
+                >
+                  Editar
+                </a>
+                
 
-            >
-              <a
-                href="/editarproducto/${producto.id}"
-                class="btn btn-outline-warning bt"
-              >
-                <abbr title="Editar"
-                  ><i class="bi bi-pencil-square px-3"></i
-                ></abbr>
-              </a>
-              
-              <a
-                href="/eliminarproducto/${producto.id}"
-                class="btn btn-outline-danger"
-              >
-                <abbr title="Borrar"><i class="bi bi-x-square px-3"></i></abbr>
-              </a>
+                <form class="mx-1" action="/eliminarproducto?_metodo=DELETE" method="POST" enctype="application/x-www-form-urlencoded">
+                  <label>
+                    <input
+                      type="hidden"
+                      name="idEliminar"
+                      value="${producto.id}"
+                    >
+                  </label>
+                  
+                  <input class="btn btn-outline-danger btn-sm" type="submit" value="Eliminar">
+                </form>
+
+              </div>
             </div>
-          </div>
           </div>
         </section>
       `

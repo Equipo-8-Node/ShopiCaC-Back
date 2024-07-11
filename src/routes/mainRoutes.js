@@ -22,6 +22,6 @@ router.get("/getCategorias", controladores.getCategorias);
 router.post("/crearproducto",uploadFile.single('imgProducto'), controladores.crearProducto);
 router.get("/editarproducto/:id", controladores.editarProducto);
 router.patch("/actualizarproducto",uploadFile.single('imgProducto'), controladores.actualizarProducto);
-router.delete("/eliminarproducto/:id", controladores.eliminarProducto);
+router.delete("/eliminarproducto", controladores.eliminarProducto);
 
 module.exports = router;

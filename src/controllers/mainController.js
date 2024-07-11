@@ -110,34 +110,22 @@ module.exports = {
         valoracion_conteo = ?
       WHERE
         id = ?`;
-    const {
-      titulo,
-      precio,
-      descripcion,
-      categoria,
-      imgProducto,
-      tasa,
-      cantidad,
-      idActualizar,
-    } = req.body;
+    
     const modificado = await conn.query(sql, [
-      titulo,
-      precio,
-      descripcion,
-      categoria,
-      imgProducto,
-      tasa,
-      cantidad,
-      idActualizar,
+      req.body.titulo,
+      parseFloat(req.body.precio),
+      req.body.descripcion,
+      req.body.categoria,
+      path.normalize(req.file.path.replace('public\\', '')),
+      parseFloat(req.body.tasa),
+      req.body.cantidad,
+      req.body.idActualizar
     ]);
     res.redirect("/productos");
   },
 
   eliminarProducto: async (req, res) => {
-    // const eliminado = await conn.query(`DELETE FROM producto WHERE id=?`, req.body.idEliminar)
-    // res.redirect('/productos')
-    res.send(
-      `<h2>Se hizo algo con ${req.body.eliminar} en el delete</h2><a href="/dinamic/1">Regresar a la página anterior</a>`
-    );
+    const eliminado = await conn.query(`DELETE FROM producto WHERE id=?`, req.body.idEliminar)
+    res.redirect('/productos')
   },
 };
