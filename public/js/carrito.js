@@ -1,10 +1,11 @@
-//import datos from "./datos.js";
-//const productos = datos.productos;
+import datos from "./datos.js";
 
 // Seleccionar elementos del DOM
 const $productsContainer = document.getElementById("products-container"); // Contenedor de productos
 const $totalNumberOfItems = document.getElementById("total-items"); // Elemento que muestra el total de elementos en el carrito
 const $cartTotal = document.getElementById("total"); // Elemento que muestra el total del carrito
+
+const productos = datos.productos;
 
 // Clase ShoppingCart para manejar el carrito de compras
 export class ShoppingCart {
@@ -145,4 +146,3 @@ export class ShoppingCart {
     }
   }
 }
-

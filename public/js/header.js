@@ -48,19 +48,19 @@ function header() {
         </li>
         
         <li class="nav-item btn-width border-2">
-          <a class="nav-link" id="navbarinicio" href="../index.html">INICIO</a>
+          <a class="nav-link" id="navbarinicio" href="/">INICIO</a>
         </li>
   
         <li class="nav-item btn-width border-2">
-          <a class="nav-link" id="navbarproductos" href="../products.html">PRODUCTOS</a>
+          <a class="nav-link" id="navbarproductos" href="/productos">PRODUCTOS</a>
         </li>
   
         <li class="nav-item btn-width border-2">
-          <a class="nav-link" id="navbarcontacto" href="../contact.html">CONTACTO</a>
+          <a class="nav-link" id="navbarcontacto" href="/contacto">CONTACTO</a>
         </li>
   
         <li class="nav-item btn-width border-2">
-          <a class="nav-link" id="navbarlogin" href="../login.html">LOGIN</a>
+          <a class="nav-link" id="navbarlogin" href="/login">LOGIN</a>
         </li>
     
         </ul>
@@ -72,23 +72,26 @@ function header() {
 
 // Muestra el boton del carrito sólo en la página de productos
 function mostrarcarrito() {
-  if (pagina === "products.html" || pagina === "products") {
+  if (pagina === "products.html" || pagina === "productos") {
     document.getElementById("idcarrito").style.visibility = "visible";
   }
 }
+// console.log("pagina: ", pagina)
 
 // Muestra el subrayado dependiendo la página
 function activenavbar() {
+  console.log(pagina)
   switch (pagina) {
     case "index.html":
+    case "":
       document.getElementById("navbarinicio").classList.add("active");
       break;
-    case "products.html":
-    case "products":
+    case "productos":
+    case "productos":
       document.getElementById("navbarproductos").classList.add("active");
       break;
     case "contact.html":
-    case "contact":
+    case "contacto":
       document.getElementById("navbarcontacto").classList.add("active");
       break;
     case "login.html":

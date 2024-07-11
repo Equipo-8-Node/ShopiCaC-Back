@@ -1,10 +1,12 @@
-// import { ShoppingCart } from "./carrito.js";
+import { ShoppingCart } from "../js/carrito";
+
 
 const $cards = document.getElementById("cards");
 const $checkboxes = document.getElementById("checkboxes");
 const $search = document.querySelector('input[placeholder="buscar"]');
 const $clearCartBtn = document.getElementById("clear-cart-btn");
-// const cart = new ShoppingCart();
+
+const cart = new ShoppingCart();
 
 const crearCards = (productos) => {
   $cards.innerHTML = productos
@@ -19,7 +21,7 @@ const crearCards = (productos) => {
           >
           <div class="card-body d-flex flex-column justify-content-between p-2">
             <p class="card-title">${producto.titulo}</p>
-            <p class="card-text">${producto.categoria}</p>
+            <p class="card-text">${producto.nombre_categoria}</p>
           </div>
           <div class="card-footer">
             <p>$${producto.precio}</p>
@@ -42,16 +44,16 @@ const crearCards = (productos) => {
 
             >
               <a
-                href="/editar-producto"
+                href="/editarproducto/${producto.id}"
                 class="btn btn-outline-warning bt"
               >
                 <abbr title="Editar"
                   ><i class="bi bi-pencil-square px-3"></i
                 ></abbr>
               </a>
-
+              
               <a
-                href="/eliminar-producto"
+                href="/eliminarproducto/${producto.id}"
                 class="btn btn-outline-danger"
               >
                 <abbr title="Borrar"><i class="bi bi-x-square px-3"></i></abbr>
@@ -64,7 +66,6 @@ const crearCards = (productos) => {
     )
     .join("");
 };
-
 
 const crearCheckbox = (categorias) => {
   $checkboxes.innerHTML = categorias
@@ -134,7 +135,7 @@ const filterAndRender = () => {
 // reinicio del formulario al retroceder con el botón "Volver" en la página details
 const resetForm = () => {
   window.addEventListener("pageshow", () => {
-    const form = document.querySelector('.filtros');
+    const form = document.querySelector(".filtros");
     form.reset();
   });
 };
@@ -143,9 +144,8 @@ const resetForm = () => {
 
 resetForm(); //reinicio el formulario (checkboxes y search)
 
-let productos = []
-let categorias = []
-
+let productos = [];
+let categorias = [];
 
 document.addEventListener("click", (event) => {
   if (event.target.closest(".add-to-cart-btn")) {
@@ -165,15 +165,13 @@ $clearCartBtn.addEventListener("click", () => {
   cart.updateCartUI();
 });
 
+document.querySelector("body").onload = async () => {
+  const resProductos = await fetch(`http://localhost:3000/getAllProducts`);
+  productos = await resProductos.json();
 
-
-document.querySelector('body').onload = async () => {
-  const resProductos = await fetch(`http://localhost:4000/getAllProducts`)
-  productos = await resProductos.json()
-
-  const resCategorias = await fetch('http://localhost:4000/getCategorias')
-  categorias = await resCategorias.json()
-  categorias = categorias.map(categoria => categoria.nombre)
+  const resCategorias = await fetch("http://localhost:3000/getCategorias");
+  categorias = await resCategorias.json();
+  categorias = categorias.map((categoria) => categoria.nombre);
 
   crearCards(productos, $cards);
   crearCheckbox(categorias, $checkboxes);
