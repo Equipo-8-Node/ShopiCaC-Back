@@ -1,5 +1,5 @@
 document.querySelector('body').onload = async () => {
-    const res = await fetch(`http://localhost:4000/getProductsInicio`);
+    const res = await fetch(`http://localhost:3000/getProductsInicio`);
     const datos = await res.json();
 
     let listaHTML = document.querySelector(`#cuatroProductos`);

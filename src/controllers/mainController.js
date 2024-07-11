@@ -1,37 +1,31 @@
-<<<<<<< HEAD
-const { conn } = require('../db/database');
-
-module.exports = {
-
-    getAllProducts: async (req, res) => {
-        try {
-            const [productos] = await conn.query(`SELECT p.id, p.titulo, p.precio, p.descripcion, p.imagen, p.valoracion_tasa, p.valoracion_conteo, c.nombre AS nombre_categoria FROM producto p INNER JOIN categoria c ON p.id_categoria = c.id`);
-            res.json(productos)
-        } catch (error) {
-            throw error;
-        } finally {
-            conn.releaseConnection();
-        }
-    },
-
-    getProductsInicio: async (req, res) => {
-        try {
-            const [productos] = await conn.query(`SELECT p.id, p.titulo, p.precio, p.imagen, c.nombre AS nombre_categoria FROM producto p JOIN categoria c ON p.id_categoria = c.id WHERE p.id IN (1, 5, 9, 16)`);
-            res.json(productos)
-        } catch (error) {
-            throw error
-        } finally {
-            conn.releaseConnection();
-        }
-    },
-
-};
-=======
-const { conn } = require("../db/dbConect");
+const { conn } = require('../db/dbConect');
 
 const path = require("path");
 
 module.exports = {
+
+  getAllProducts: async (req, res) => {
+    try {
+      const [productos] = await conn.query(`SELECT p.id, p.titulo, p.precio, p.descripcion, p.imagen, p.valoracion_tasa, p.valoracion_conteo, c.nombre AS nombre_categoria FROM producto p INNER JOIN categoria c ON p.id_categoria = c.id`);
+      res.json(productos)
+    } catch (error) {
+      throw error;
+    } finally {
+      conn.releaseConnection();
+    }
+  },
+
+  getProductsInicio: async (req, res) => {
+    try {
+      const [productos] = await conn.query(`SELECT p.id, p.titulo, p.precio, p.imagen, c.nombre AS nombre_categoria FROM producto p JOIN categoria c ON p.id_categoria = c.id WHERE p.id IN (1, 5, 9, 16)`);
+      res.json(productos)
+    } catch (error) {
+      throw error
+    } finally {
+      conn.releaseConnection();
+    }
+  },
+
   getProductos: async (req, res) => {
     try {
       const [productos] = await conn.query(
@@ -61,14 +55,14 @@ module.exports = {
 
   crearProducto: async (req, res) => {
     const sql = `INSERT INTO producto (titulo, precio, descripcion, id_categoria, imagen, valoracion_tasa, valoracion_conteo) VALUES (?,?,?,?,?,?,?);`
-		const creado = await conn.query(sql, [req.body.titulo, parseFloat(req.body.precio), req.body.descripcion, req.body.categoria, req.body.imgProducto, parseFloat(req.body.rate), req.body.cantidad])
+    const creado = await conn.query(sql, [req.body.titulo, parseFloat(req.body.precio), req.body.descripcion, req.body.categoria, req.body.imgProducto, parseFloat(req.body.rate), req.body.cantidad])
     res.redirect('agregar-producto.html')
   },
 
-  editarProducto: async (req, res) => {},
+  editarProducto: async (req, res) => { },
 
-  actualizarProducto: (req, res) => {},
+  actualizarProducto: (req, res) => { },
 
-  eliminarProducto: (req, res) => {},
+  eliminarProducto: (req, res) => { },
 };
->>>>>>> desarrollo
+

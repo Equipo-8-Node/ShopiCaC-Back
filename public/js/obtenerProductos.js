@@ -19,7 +19,7 @@ document.querySelector("body").onload = async () => {
             <div class="card-footer">
               <p>$${producto.precio}</p>
               <div>
-                <a href="../pages/detail.html?id=${producto.id}" class="btn btn-outline-danger btn-sm">
+                <a href="./detail.html?id=${producto.id}" class="btn btn-outline-danger btn-sm">
                   Detalles
                 </a>  
                 <button id="${producto.id}" class="btn btn-outline-danger add-to-cart-btn btn-sm">

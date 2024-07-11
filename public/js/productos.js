@@ -1,4 +1,4 @@
-import datos from "./datos.js";
+//import datos from "./datos.js";
 import { ShoppingCart } from "./carrito.js";
 
 const productos = datos.productos;
