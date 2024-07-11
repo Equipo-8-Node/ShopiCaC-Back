@@ -27,7 +27,7 @@
       <div class="row m-5">
         <h1 class="my-4">Nuevo producto</h1>
 
-        <form class="col col-12 col-xl-6" method="POST" action="/crearproducto">
+        <form class="col col-12 col-xl-6" method="POST" action="/crearproducto" enctype="multipart/form-data">
           <!-- titulo -->
           <div class="mb-3">
             <label for="titulo" class="form-label">Título</label>
@@ -87,6 +87,7 @@
               id="imgProducto"
               name="imgProducto"
               accept="image/*"
+              required
             />
           </div>
 

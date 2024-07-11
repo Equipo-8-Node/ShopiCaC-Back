@@ -1,4 +1,4 @@
-import { ShoppingCart } from "../js/carrito";
+// import { ShoppingCart } from "../js/carrito";
 
 
 const $cards = document.getElementById("cards");
@@ -6,7 +6,7 @@ const $checkboxes = document.getElementById("checkboxes");
 const $search = document.querySelector('input[placeholder="buscar"]');
 const $clearCartBtn = document.getElementById("clear-cart-btn");
 
-const cart = new ShoppingCart();
+// const cart = new ShoppingCart();
 
 const crearCards = (productos) => {
   $cards.innerHTML = productos

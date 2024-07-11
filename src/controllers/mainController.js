@@ -1,4 +1,5 @@
 const { conn } = require("../db/database");
+const path = require('path')
 
 module.exports = {
   getAllProducts: async (req, res) => {
@@ -58,7 +59,7 @@ module.exports = {
       parseFloat(req.body.precio),
       req.body.descripcion,
       req.body.categoria,
-      req.body.imgProducto,
+      path.normalize(req.file.path.replace('public\\', '')),
       parseFloat(req.body.tasa),
       req.body.cantidad,
     ]);
@@ -66,7 +67,6 @@ module.exports = {
   },
 
   editarProducto: async (req, res) => {
-    // console.log(req.params.id)
     const [registro] = await conn.query(
       `
       SELECT
@@ -97,9 +97,19 @@ module.exports = {
   },
 
   actualizarProducto: async (req, res) => {
-    const sql = `UPDATE producto SET titulo = ?, precio = ?, descripcion = ?, id_categoria = ?, imagen = ?, valoracion_tasa = ?, valoracion_conteo = ? WHERE id = ?`;
-    // console.log(req.body)
-
+    const sql = `
+      UPDATE
+        producto
+      SET
+        titulo = ?,
+        precio = ?,
+        descripcion = ?,
+        id_categoria = ?,
+        imagen = ?,
+        valoracion_tasa = ?,
+        valoracion_conteo = ?
+      WHERE
+        id = ?`;
     const {
       titulo,
       precio,
@@ -120,7 +130,6 @@ module.exports = {
       cantidad,
       idActualizar,
     ]);
-    console.log(modificado);
     res.redirect("/productos");
   },
 
